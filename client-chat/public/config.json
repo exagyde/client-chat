@@ -1,0 +1,6 @@
+{
+    "responseAPI": {
+        "_comment": "Response content => $response",
+        "body": "{\"result\": \"$response\"}"
+    }
+}

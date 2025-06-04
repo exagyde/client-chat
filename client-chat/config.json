@@ -1,0 +1,9 @@
+{
+    "requestAPI": {
+        "_comment": "Prompt content => $prompt; File content => $file",
+        "method": "POST",
+        "url": "http://localhost:3030/generate",
+        "headers": "{\"Content-Type\": \"application/json\", \"x-api-key\": \"ee7f75b4-1894-4e81-aa53-35ca1ba2c2fe\"}",
+        "body": "{\"prompt\": \"$prompt\"}"
+    }
+}

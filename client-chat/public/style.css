@@ -1,0 +1,219 @@
+:root {
+    --cc-color-p: 234, 234, 234;
+    --cc-color-s: 154, 154, 154;
+}
+
+*, :after, :before {
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100dvh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 5px;
+}
+
+*:has(> main#cc-container) {
+    display: flex;
+    align-items: center;
+}
+
+main#cc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+}
+
+main#cc-container > button#cc-new {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    background-color: transparent;
+}
+
+main#cc-container > button#cc-new:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+main#cc-container > button#cc-new:active {
+    opacity: 0.6;
+}
+
+main#cc-container > div#cc-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    align-items: center;
+}
+
+main#cc-container > div#cc-chat:has(> svg) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main#cc-container > div#cc-chat > svg {
+    color: var(--cc-color-s);
+}
+
+main#cc-container > div#cc-chat > div {
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    max-width: 768px;
+}
+
+main#cc-container > div#cc-chat > div > svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    padding: 4px;
+    border: 1px solid var(--cc-color-s);
+    border-radius: 50%;
+}
+
+main#cc-container > div#cc-chat > div > div,
+main#cc-container > div#cc-chat > div > img {
+    white-space: pre-wrap;
+    border-radius: 1.5rem;
+    user-select: text;
+    max-width: 70%;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) {
+    justify-content: flex-start;
+    position: relative;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > div {
+    background-color: transparent;
+    width: fit-content;
+    padding: .325rem 0;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-copy,
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-speak {
+    opacity: 0.8;
+    background-color: transparent;
+    position: absolute;
+    left: 32px;
+    bottom: -24px;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-speak {
+    left: 60px;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-copy:hover,
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-speak:hover {
+    cursor: pointer;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-copy:active,
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-speak:active {
+    opacity: 0.6;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-copy > svg,
+main#cc-container > div#cc-chat > div:nth-child(2n) > button.cc-speak > svg {
+    width: 18px;
+    height: 18px;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n+1) {
+    justify-content: flex-end;
+}
+
+main#cc-container > div#cc-chat > div:nth-child(2n+1) > div {
+    background-color: rgb(var(--cc-color-p));
+    width: fit-content;
+    padding: .625rem 1.25rem;
+}
+
+main#cc-container > div:last-child {
+    width: 100%;
+    max-width: 768px;
+    position: relative;
+}
+
+main#cc-container > div:last-child > div {
+    background-color: rgb(var(--cc-color-p));
+    padding: 3px 1rem;
+    border-radius: 26px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+main#cc-container > div:last-child > span#cc-waiting {
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+main#cc-container > div:last-child > div > textarea#cc-prompt {
+    resize: none;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-family: inherit;
+    overflow-y: hidden;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    padding: 12px 0;
+    margin-right: 12px;
+}
+
+main#cc-container > div:last-child:has(textarea#cc-prompt[disabled]) > span#cc-waiting {
+    opacity: 1;
+}
+
+main#cc-container > div:last-child > div > button#cc-send {
+    color: rgb(var(--cc-color-p));
+    background-color: rgb(var(--cc-color-s));
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    margin-bottom: .5rem;
+    transition: opacity 0.5s;
+}
+
+main#cc-container > div:last-child > div > button#cc-send:disabled {
+    opacity: 0.2;
+}
+
+main#cc-container > div:last-child > div > button#cc-send:not(:disabled):hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+main#cc-container > div:last-child > div > button#cc-send:not(:disabled):active {
+    opacity: 0.6;
+}
+
+main#cc-container > div:last-child > h6 {
+    text-align: center;
+}
