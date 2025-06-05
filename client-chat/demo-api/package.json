@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
+    "node-nlp": "^5.0.0-alpha.5",
     "nodemon": "^3.1.9"
   },
   "type": "module"

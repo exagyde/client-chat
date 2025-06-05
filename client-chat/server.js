@@ -25,13 +25,7 @@ app.post("/api", async (req, res) => {
             );
             res.json(response.data);
         } else {
-            const response = await axios.get(
-                CONFIG.requestAPI.url.replace("$prompt", req.body.prompt), 
-                { 
-                    headers: JSON.parse(CONFIG.requestAPI.headers)
-                }
-            );
-            res.json(response.data);
+            res.json("hello client-chat world !");
         }
     } catch (err) {
         console.error(err);
