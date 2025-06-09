@@ -1,4 +1,4 @@
-import keys from "../keys.json" assert { type: "json" };
+import keys from "../keys.json" with { type: "json" };
 
 export default function verifyApiKey(req, res, next) {
     const apiKey = req.headers["x-api-key"];
