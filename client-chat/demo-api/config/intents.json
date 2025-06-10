@@ -1,0 +1,14 @@
+{
+    "intents": [
+        {
+            "intent": "card.search",
+            "utterances": [
+                "cherche la carte %name%",
+                "trouve %name%"
+            ],
+            "answers": [
+                "Je cherche dans la base..."
+            ]
+        }
+    ]
+}
